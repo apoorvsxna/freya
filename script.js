@@ -513,7 +513,7 @@ function renderPlaylists() {
     const songCount = playlists[playlistName].length;
     const card = document.createElement('div');
     card.classList.add('playlist-card');
-    let coverImage = 'assets/default-playlist.png';
+    let coverImage = 'assets/default-cover.png';
     if (playlists[playlistName].length > 0 && playlists[playlistName][0].img) {
       coverImage = playlists[playlistName][0].img;
     }
