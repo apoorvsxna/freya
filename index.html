@@ -24,6 +24,8 @@
       <a href="https://github.com/yourusername/yourrepo" target="_blank" class="github-link">
         <i class="fab fa-github"></i>
       </a>
+      <!-- Logout button (visible when logged in) -->
+      <button id="logoutButton" class="logout-button">Logout</button>
     </div>
     <div class="header-search">
       <div class="search-bar" id="searchBar">
@@ -33,6 +35,17 @@
     </div>
   </header>  
   
+  <!-- Authentication Modal -->
+  <div id="authModal" class="auth-modal" style="display: none;">
+    <div class="auth-container">
+      <h2>Login / Sign Up</h2>
+      <input type="email" id="authEmail" placeholder="Email">
+      <input type="password" id="authPassword" placeholder="Password">
+      <button id="loginButton">Login</button>
+      <button id="signupButton">Sign Up</button>
+    </div>
+  </div>
+
   <!-- Main Content -->
   <main>
     <!-- Front Page: Recently Played -->
@@ -122,6 +135,7 @@
     </button>
   </nav>
 
-  <script src="script.js"></script>
+  <!-- Load script as a module -->
+  <script type="module" src="script.js"></script>
 </body>
 </html>
