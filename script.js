@@ -36,7 +36,8 @@ let playlists = { 'Favorites': [] };
 let currentPlaylist = null;
 let recentlyPlayed = [];
 
-// DOM Elements
+// DOM Elements for Main App
+const mainApp = document.getElementById('mainApp');
 const searchInput = document.getElementById('searchInput');
 const resultsContainer = document.getElementById('results');
 const audioPlayer = document.getElementById('audioPlayer');
@@ -57,8 +58,8 @@ const progressBar = document.getElementById('progressBar');
 const progressContainer = document.querySelector('.progress-container');
 const progressIndicator = document.getElementById('progressIndicator');
 
-// Auth DOM Elements
-const authModal = document.getElementById('authModal');
+// DOM Elements for Auth
+const authSection = document.getElementById('authSection');
 const loginButton = document.getElementById('loginButton');
 const signupButton = document.getElementById('signupButton');
 const authEmail = document.getElementById('authEmail');
@@ -163,16 +164,18 @@ function saveUserData() {
 // Monitor Auth State
 onAuthStateChanged(auth, user => {
   if (user) {
-    authModal.style.display = 'none';
-    logoutButton.style.display = 'block'; // Show logout button when logged in
+    // Show main app, hide auth section
+    authSection.style.display = 'none';
+    mainApp.style.display = 'block';
+    logoutButton.style.display = 'block';
     loadUserData(user.uid);
   } else {
-    authModal.style.display = 'flex';
-    logoutButton.style.display = 'none'; // Hide logout button when logged out
-    // Optionally clear or reset your UI for logged-out state here
+    // Show auth section, hide main app
+    authSection.style.display = 'flex';
+    mainApp.style.display = 'none';
+    logoutButton.style.display = 'none';
   }
 });
-
 
 // Front Page Update (Recently Played)
 function updateFrontPage() {
